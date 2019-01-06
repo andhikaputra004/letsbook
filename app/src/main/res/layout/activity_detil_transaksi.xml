@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <ScrollView android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:id="@+id/sv_item"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar_layout">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark">
+
+            <ImageView android:layout_width="wrap_content"
+                       android:layout_height="@dimen/dimen_150dp"
+                       android:id="@+id/iv_ticket"/>
+            <TextView android:layout_width="wrap_content"
+                      android:id="@+id/tv_nomor_order"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/iv_ticket"
+                      android:layout_marginLeft="@dimen/dimen_24dp"
+                      android:text="@string/txt_nomor_order"
+                      android:textColor="@color/yelow"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/tv_nomor_order"
+                      android:layout_marginLeft="@dimen/dimen_24dp"
+                      android:id="@+id/tv_waktu"
+                      android:text="@string/txt_waktu"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/tv_waktu"
+                      android:layout_marginLeft="@dimen/dimen_24dp"
+                      android:text="@string/txt_lokasi"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/tv_content_order"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:textColor="@color/yelow"
+                      app:layout_constraintTop_toBottomOf="@id/iv_ticket"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintTop_toBottomOf="@id/tv_content_order"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:id="@+id/tv_content_waktu"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintLeft_toRightOf="@+id/tv_lokasi"
+                      app:layout_constraintTop_toBottomOf="@id/tv_content_waktu"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:id="@+id/tv_content_lokasi"/>
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="49dp"
+                      android:text="Detil Transaksi"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:background="@color/yelow"
+                      app:layout_constraintTop_toBottomOf="@id/tv_content_lokasi"
+                      android:paddingTop="@dimen/dimen_10dp"
+                      android:textSize="@dimen/font_18sp"
+                      android:id="@+id/tv_detil"
+                      android:textAlignment="center"
+                      android:paddingBottom="@dimen/dimen_10dp"/>
+            <android.support.constraint.ConstraintLayout android:layout_width="@dimen/dimen_0dp"
+                                                         android:layout_height="wrap_content"
+                                                         android:background="@color/white"
+                                                         android:paddingTop="@dimen/dimen_50dp"
+                                                         android:paddingLeft="@dimen/dimen_24dp"
+                                                         app:layout_constraintTop_toBottomOf="@id/tv_detil"
+                                                         app:layout_constraintLeft_toLeftOf="parent"
+                                                         app:layout_constraintRight_toRightOf="parent"
+                                                         app:layout_constraintBottom_toBottomOf="parent">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Harga Tiket"
+                          android:id="@+id/tv_tiket"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintLeft_toLeftOf="parent"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintLeft_toLeftOf="parent"
+                          android:id="@+id/tv_biaya"
+                          app:layout_constraintTop_toBottomOf="@id/tv_tiket"
+                          android:text="Biaya Layanan"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintTop_toBottomOf="@id/tv_biaya"
+                          android:text="Total"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_content_tiket"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintRight_toRightOf="parent"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintRight_toRightOf="parent"
+                          android:id="@+id/tv_content_biaya"
+                          app:layout_constraintTop_toBottomOf="@id/tv_tiket"
+                />
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/tv_total"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintRight_toRightOf="parent"
+                          app:layout_constraintTop_toBottomOf="@id/tv_biaya"
+                />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">LetsBook</string>
+    <string name="txt_login">LOGIN</string>
+    <string name="txt_username">Username</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_login_no_caps">Login</string>
+    <string name="empty_string"/>
+    <string name="txt_email">Email</string>
+    <string name="txt_phone_number">Phone Number</string>
+    <string name="txt_register">Register</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="txt_penyelenggara">Penyelenggara</string>
+    <string name="txt_waktu_event">Waktu Event</string>
+    <string name="txt_harga_tiket">Harga Tiket</string>
+    <string name="txt_sisa_tiket">Sisa Tiket</string>
+    <string name="txt_lokasi">Lokasi</string>
+    <string name="txt_contact_person">Contact Person</string>
+    <string name="txt_info">Info</string>
+    <string name="txt_id_transaksi">ID Transaksi</string>
+    <string name="txt_jumlah_tiket">Jumlah Tiket</string>
+    <string name="txt_nomor_order">Nomor Order</string>
+    <string name="txt_waktu">Waktu</string>
+</resources>

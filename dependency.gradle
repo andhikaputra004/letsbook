@@ -1,0 +1,59 @@
+ext {
+
+    support = '27.1.1'
+    retrofit = '2.4.0'
+    okhttp3 = '3.10.0'
+    rxJava = '2.2.3'
+    rxAndroid = '2.1.0'
+    rxBinding = '2.0.0'
+    dagger = '2.15'
+    AAC = '1.1.1'
+    constraint = '1.1.3'
+
+
+    support =
+            [
+                    compat      : "com.android.support:support-compat:$support",
+                    app         : "com.android.support:appcompat-v7:$support",
+                    cardView    : "com.android.support:cardview-v7:$support",
+                    recyclerView: "com.android.support:recyclerview-v7:$support",
+                    design      : "com.android.support:design:$support",
+            ]
+    dagger =
+            [
+                    dagger   : "com.google.dagger:dagger:$dagger",
+                    compiler : "com.google.dagger:dagger-compiler:$dagger",
+                    android  : "com.google.dagger:dagger-android:$dagger",
+                    support  : "com.google.dagger:dagger-android-support:$dagger",
+                    processor: "com.google.dagger:dagger-android-processor:$dagger",
+            ]
+    retrofit =
+            [
+                    retrofit: "com.squareup.retrofit2:retrofit:$retrofit",
+                    gson   : "com.squareup.retrofit2:converter-gson:$retrofit",
+                    rx      : "com.squareup.retrofit2:adapter-rxjava2:$retrofit",
+            ]
+    okHttp =
+            [
+                    okHttp : "com.squareup.okhttp3:okhttp:$okhttp3",
+                    logging: "com.squareup.okhttp3:logging-interceptor:$okhttp3",
+            ]
+    rx =
+            [
+                    android: "io.reactivex.rxjava2:rxandroid:$rxAndroid",
+                    java   : "io.reactivex.rxjava2:rxjava:$rxJava",
+            ]
+    rxBinding =
+            [
+
+                    rxbinding  : "com.jakewharton.rxbinding2:rxbinding:$rxBinding",
+                    rxSupport  : "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBinding",
+                    rxAppCompat: "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxBinding",
+                    rxDesign   : "com.jakewharton.rxbinding2:rxbinding-design:$rxBinding"
+            ]
+    ac =
+            [
+                    extensions: "android.arch.lifecycle:extensions:$AAC",
+                    constraint: "com.android.support.constraint:constraint-layout:$constraint"
+            ]
+}
