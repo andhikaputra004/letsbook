@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import com.example.andhika.letsbook.MainActivity
 import com.example.andhika.letsbook.fragment.content.ContentFragment
 import com.example.andhika.letsbook.fragment.ticket.TicketFragment
+import com.example.andhika.letsbook.fragment.topup.TopUpFragment
 import com.example.andhika.letsbook.fragment.transaksi.TransaksiFragment
 import com.example.andhika.letsbook.login.LoginActivity
 import com.example.andhika.letsbook.register.RegisterActivity
@@ -29,4 +30,8 @@ abstract class FragmentBuilder {
     @ContributesAndroidInjector
     abstract fun bindTransaksiFragment(): TransaksiFragment
 
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun bindTopUpFragment(): TopUpFragment
 }
