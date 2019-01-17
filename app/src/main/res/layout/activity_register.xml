@@ -79,9 +79,13 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <Button android:layout_width="wrap_content"
+    <Button android:layout_width="@dimen/dimen_0dp"
+            android:layout_marginLeft="@dimen/dimen_24dp"
+            android:layout_marginRight="@dimen/dimen_24dp"
             android:layout_height="wrap_content"
             android:text="@string/txt_register"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
             android:textAllCaps="false"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="@dimen/dimen_20dp"

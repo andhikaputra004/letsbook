@@ -19,10 +19,16 @@ import com.example.andhika.letsbook.utils.Costant.Common.Companion.EMAIL
 import com.example.andhika.letsbook.utils.Costant.Common.Companion.ID_PELANGGAN
 import com.example.andhika.letsbook.utils.Costant.Common.Companion.NAMA_PELANGGAN
 import com.example.andhika.letsbook.utils.getColorCompat
+import com.example.andhika.letsbook.utils.setEnable
+import com.example.andhika.letsbook.utils.showSnackBar
+import com.jakewharton.rxbinding2.widget.RxTextView
+import io.reactivex.Observable
+import io.reactivex.functions.BiFunction
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity() , LoginContract.View {
+
 
 
     @Inject
@@ -48,6 +54,18 @@ class LoginActivity : BaseActivity() , LoginContract.View {
         btn_login.setOnClickListener {
             presenter.goToLogin(LoginRequest(et_username.text.toString(),et_password.text.toString()))
         }
+        presenter.setValidation(
+            Observable.combineLatest(
+                RxTextView.textChanges(et_username).map {
+                    it.isNotEmpty()
+                },
+                RxTextView.textChanges(et_password).map {
+                    it.isNotEmpty()
+                },
+                BiFunction { email, pass ->
+                    email && pass
+                }
+            ))
     }
 
     override fun getLoginReponse(response: LoginReponse) {
@@ -91,5 +109,13 @@ class LoginActivity : BaseActivity() , LoginContract.View {
         }
 
     }
+    override fun showError(error: Any) {
+        showSnackBar(btn_login, error.toString())
+    }
+
+    override fun getValidation(boolean: Boolean) {
+        btn_login.setEnable(boolean)
+    }
+
 
 }

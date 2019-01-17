@@ -3,8 +3,13 @@ package com.example.andhika.letsbook.utils
 import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ColorRes
+import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import com.example.andhika.letsbook.R
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -37,6 +42,47 @@ fun <T> Observable<T>.uisubscribe(onNext: (T) -> Unit, onError: (Throwable) -> U
         }, {
             onCompleted.invoke()
         })
+}
+
+
+fun Context.showSnackBar(
+    view: View, text: String, actionText: Int = android.R.string.ok,
+    duration: Int = Snackbar.LENGTH_INDEFINITE,
+    textColor: Int = ContextCompat.getColor(this, R.color.Red),
+    onActionClick: () -> Unit = {}, dismissEvent: () -> Unit = {}
+) {
+    val snackbar = Snackbar.make(view, text, duration)
+    snackbar.setAction(actionText) {
+        onActionClick.invoke()
+        snackbar.dismiss()
+    }
+    snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.Grey))
+    snackbar.duration = Costant.Common.SNACKBAR_DURATION
+    snackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+    snackbar.view.findViewById<TextView>(android.support.design.R.id.snackbar_text).setTextColor(textColor)
+    snackbar.show()
+    snackbar.addCallback(object : Snackbar.Callback() {
+        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+            super.onDismissed(transientBottomBar, event)
+            dismissEvent.invoke()
+        }
+    })
+}
+
+
+fun Button.setEnable(boolean: Boolean) {
+    with(this) {
+        isEnabled = boolean
+        when {
+            boolean -> {
+                this.setTextColor(ContextCompat.getColor(context,R.color.white))
+                this.setBackgroundResource(R.drawable.rounded_button)
+            }
+            else -> {
+                this.setBackgroundResource(R.drawable.rounded_button_disable)
+            }
+        }
+    }
 }
 
 

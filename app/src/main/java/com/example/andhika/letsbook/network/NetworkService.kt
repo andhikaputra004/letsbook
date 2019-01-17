@@ -17,7 +17,7 @@ interface NetworkService {
     @GET("event/listbytime")
     fun doGetListEvent(): Observable<EventResponse>
 
-    @POST("transaksi/listalltransaksi")
+    @POST("transaksi/listaktiftransaksi")
     fun doGetTicket(@Body request: TicketRequest): Observable<TicketResponse>
 
     @POST("transaksi/dotransaksi")
