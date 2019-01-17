@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url();?>assets_main/img/logo.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Pelanggan</title>
+  <title>Kategori</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -138,8 +138,8 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header" data-background-color="purple">
-                <h4 class="title">Pelanggan</h4>
-                <p class="category">Data Semua Pelanggan</p>
+                <h4 class="title">Kategori</h4>
+                <p class="category">Data Semua Kategori</p>
               </div>
               <div class="card-content table-responsive">
                 <table class="table">

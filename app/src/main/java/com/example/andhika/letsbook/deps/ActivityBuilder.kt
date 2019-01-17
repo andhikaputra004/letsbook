@@ -2,8 +2,10 @@ package com.example.andhika.letsbook.deps
 
 import android.annotation.SuppressLint
 import com.example.andhika.letsbook.MainActivity
+import com.example.andhika.letsbook.belitiket.TransaksiActivity
 import com.example.andhika.letsbook.detil_event.DetilEventActivity
 import com.example.andhika.letsbook.fragment.detilTransaksi.DetilTransaksiActiviy
+import com.example.andhika.letsbook.fragment.detil_refund.DetilRefundActivity
 import com.example.andhika.letsbook.ketentuan.KetentuanActivity
 import com.example.andhika.letsbook.login.LoginActivity
 import com.example.andhika.letsbook.main.Main2Activity
@@ -46,4 +48,14 @@ abstract class ActivityBuilder {
     @ActivityScoped
     @ContributesAndroidInjector
     abstract fun bindKetentuanEvent() : KetentuanActivity
+
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun bindTransaksiActivity() : TransaksiActivity
+
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun bindDetilRefundActivity() : DetilRefundActivity
 }

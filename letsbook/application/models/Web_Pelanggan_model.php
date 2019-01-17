@@ -11,7 +11,7 @@ class Web_Pelanggan_model extends CI_Model {
     public function getListPelanggan($number,$offset){
       $this->db->select('*');
       $this->db->from('tbl_pelanggan');
-      $this->db->order_by('status','asc');
+      $this->db->order_by('id_pelanggan','desc');
       $this->db->limit($number,$offset);
       $query=$this->db->get('');
       return $query->result();

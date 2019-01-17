@@ -2,6 +2,7 @@ package com.example.andhika.letsbook.fragment.ticket
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.andhika.letsbook.model.Listaktiftransaksi
 import com.example.andhika.letsbook.model.TicketRequest
 import com.example.andhika.letsbook.model.TicketResponse
 import com.example.andhika.letsbook.utils.Costant.Common.Companion.ID_PELANGGAN
+import com.example.andhika.letsbook.utils.changeDateFormat
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.viewholder_ticket.view.*
@@ -33,11 +35,29 @@ class TicketFragment : DaggerFragment(), TicketContract.View {
         GeneralRecyclerViewAdapter(R.layout.viewholder_ticket, listEvent, { model, _, _ ->
 
         }, { model, view ->
-            Glide.with(this).load("http://192.168.43.150/letsbook/images/event/poster/${model.gambarPoster}")
-                .into(view.iv_ticket)
-            view.tv_location.text = model.lokasi
-            view.tv_price.text = model.hargaTiket
-            view.tv_title.text = model.namaEvent
+            when{
+                model.statusTiket.equals("aktif") ->{
+                    Glide.with(this).load("http://192.168.43.150/letsbook/images/event/poster/${model.gambarPoster}")
+                        .into(view.iv_ticket)
+                    view.tv_time.text = model.tanggalEvent?.changeDateFormat("yyyy-MM-dd","dd MMMM yyyy")
+                    view.tv_location.text = model.lokasi
+                    view.tv_price.text = model.hargaTiket
+                    view.tv_title.text = model.namaEvent
+                    view.tv_status.visibility = View.VISIBLE
+                    view.tv_status.text = model.statusTiket
+                }
+                else ->{
+                    Glide.with(this).load("http://192.168.43.150/letsbook/images/event/poster/${model.gambarPoster}")
+                        .into(view.iv_ticket)
+                    view.tv_location.text = model.lokasi
+                    view.tv_time.text = model.tanggalEvent?.changeDateFormat("yyyy-MM-dd","dd MMMM yyyy")
+                    view.tv_price.text = model.hargaTiket
+                    view.tv_title.text = model.namaEvent
+                    view.tv_status.visibility = View.VISIBLE
+                    view.tv_status.text = model.statusTiket
+                    context?.let { ContextCompat.getColor(it,R.color.blue) }?.let { view.tv_status.setBackgroundColor(it) }
+                }
+            }
         })
     }
 

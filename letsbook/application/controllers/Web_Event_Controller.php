@@ -11,6 +11,7 @@ class Web_Event_Controller extends CI_Controller {
         );
         $this->load->model($models);
     }
+    
     public function setEventView(){
         $countEvent=$this->Web_Event_model->getCountEvent();
         $config['base_url']=base_url().'index.php/Web_Event_controller/setEventView/';
@@ -21,17 +22,18 @@ class Web_Event_Controller extends CI_Controller {
         $data['list_event']=$this->Web_Event_model->getListEvent($config["per_page"],$page);
         $this->load->view('Event_View',$data);
     }
+
     public function getDetailEvent($id_event){
         $event=$this->Web_Event_model->getEventById($id_event);
         $this->load->view('Event_Detail_View',$event);
     }
+
+
     public function Tambah(){   
         $this->load->model('Web_Kategori_model');
-        $data['all_Kategori'] = $this->Web_Kategori_model->CMBKategori();
-    
+        $data['all_Kategori'] = $this->Web_Kategori_model->CMBKategori();   
         $this->load->model('Web_Penyelenggara_model');
         $data['all_penyelenggara'] = $this->Web_Penyelenggara_model->CMBpenyelenggara();
-
 		$this->load->view('Event_Add_View',$data);
 	}
     public function insert_event(){
@@ -83,6 +85,7 @@ class Web_Event_Controller extends CI_Controller {
             echo"gagal";
         }
     }
+    
     public function update_izin(){
         $this->load->library('upload');
         $nmfile = "izin_".time(); //nama file saya beri nama langsung dan diikuti fungsi time

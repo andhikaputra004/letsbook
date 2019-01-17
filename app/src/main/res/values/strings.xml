@@ -26,4 +26,14 @@
     <string name="txt_jumlah_tiket">Jumlah Tiket</string>
     <string name="txt_nomor_order">Nomor Order</string>
     <string name="txt_waktu">Waktu</string>
+    <string name="transaksi">Transaksi</string>
+    <string name="detail_event">Detail Event</string>
+    <string name="txt_ketentuan">Ketentuan</string>
+    <string name="detil_refund">Detil Refund</string>
+    <string name="logout">Log Out</string>
+    <string name="logout_dialog_detail">Apa anda yakin ingin Keluar?</string>
+    <string name="yes_dialog">Yes</string>
+    <string name="no_dialog">No</string>
+    <string name="txt_don_t_have_an_account_sign_up">Don\'t have an account? %1$s</string>
+    <string name="txt_sign_up">Sign Up</string>
 </resources>

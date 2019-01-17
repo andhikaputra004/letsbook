@@ -9,6 +9,7 @@ class Web_EventSelesai_Model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('tbl_event');
+        $this->db->where('status_event','selesai');
         $countEvent=$this->db->count_all_results('');
         return $countEvent;
     }

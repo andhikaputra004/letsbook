@@ -53,6 +53,7 @@ dependencies {
 
     implementation ac.constraint
     implementation ac.extensions
+    implementation joda.joda
 
     implementation dagger.dagger
     implementation dagger.android

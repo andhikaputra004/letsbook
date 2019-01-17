@@ -214,7 +214,9 @@
 </div>
  
 <!-- Sart Modal Tamhah Data -->
+
 <form action="<?php echo site_url('penyelenggara/add');?>" method="post" enctype="multipart/form-data">
+
 	<div class="modal fade" id="myModalTambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -316,7 +318,7 @@
         <div class="modal-content">
 
         <div class="modal-header">
-					<h4 class="modal-title">Edit Data Identitas</h4>
+					<h4 class="modal-title">Data Izin</h4>
 					<input type="hidden" name="id_penyelenggara"/>
         </div>
         
@@ -327,7 +329,7 @@
 					</div>
 
         <div class="input-group">
-          <label>Foto KTP</label>
+          <label>Surat Izin</label>
           <input type="file" class="btn btn-primary" name="foto_legalitas" id="foto_legalitas"/>
         </div>
 

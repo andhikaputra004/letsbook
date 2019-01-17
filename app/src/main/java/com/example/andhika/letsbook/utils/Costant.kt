@@ -6,6 +6,8 @@ class Costant{
             const val LETSBOOK = "letsbook"
             const val ID_PELANGGAN = "id_pelanggan"
             const val NAMA_PELANGGAN = "nama_pelanggan"
+            const val EMAIL = "email"
+
         }
     }
 }

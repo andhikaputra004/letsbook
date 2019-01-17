@@ -13,6 +13,7 @@ import com.example.andhika.letsbook.detil_event.DetilEventActivity
 import com.example.andhika.letsbook.model.EventRequest
 import com.example.andhika.letsbook.model.EventResponse
 import com.example.andhika.letsbook.model.Listevent
+import com.example.andhika.letsbook.utils.changeDateFormat
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.viewholder_ticket.view.*
@@ -40,7 +41,9 @@ class ContentFragment : DaggerFragment(), ContentContract.View {
                 putString("LOKASI",model.lokasi)
                 putString("QUOTA",model.quotaPeserta)
                 putString("TERJUAL",model.tiketTerjual)
-                putString("DESKRIPSI",model.deskripsiPenyelenggara)
+                putString("DESKRIPSI",model.keteranganEvent)
+                putString("ID_EVENT",model.idEvent)
+                putString("LAYANAN",model.biaya)
 
             }
             startActivity(Intent(activity, DetilEventActivity::class.java).apply {
@@ -52,6 +55,8 @@ class ContentFragment : DaggerFragment(), ContentContract.View {
             view.tv_location.text = model.lokasi
             view.tv_price.text = model.hargaTiket
             view.tv_title.text = model.namaEvent
+            view.tv_time.text = model.tanggalEvent?.changeDateFormat("yyyy-MM-dd","dd MMMM yyyy")
+
         })
     }
 

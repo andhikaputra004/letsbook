@@ -147,6 +147,7 @@
                     <th>Nama Event</th>
                     <th>Nama Penyelenggara</th>
                     <th>Tiket Terjual</th>
+                    <th>Status Event</th>                    
                     <th>Jadwal Event</th>
                     <th>Action</th>
                   </thead>
@@ -161,6 +162,7 @@
                         <td><?php echo $event->nama_event ?></td>
                         <td><?php echo $event->nama_organisasi ?></td>
                         <td><?php echo $event->tiket_terjual ?></td>
+                        <td><?php echo $event->status_event ?></td>
                         <td><?php echo $event->tanggal_event ?></td>
                         <td class="td-actions text-right" >
                           <?php
@@ -168,7 +170,7 @@
                           echo anchor(base_url().'event/detail/'.$event->id_event,'<button type="button" rel="tooltip" title="Read More" class="btn btn-info btn-simple btn-xs">
                           <i class="material-icons">visibility</i>
                           </button>');
-                          echo anchor(base_url().'event/update/'.$event->id_event,'<button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          echo anchor(base_url().'event/update/'.$event->id_event,'<button type="button" rel="tooltip" title="Edit Event" class="btn btn-primary btn-simple btn-xs">
                           <i class="material-icons">edit</i>
                           </button>');
                           

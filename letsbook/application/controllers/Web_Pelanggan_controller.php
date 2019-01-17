@@ -13,7 +13,6 @@ class Web_Pelanggan_controller extends CI_Controller {
     public function setPelangganView()
     {
         $countPelanggan=$this->Web_Pelanggan_model->getCountPelanggan();
-
         $config['base_url']=base_url().'index.php/Web_Pelanggan_controller/setPelangganView/';
         $config['total_rows'] = $countPelanggan;
         $config['per_page'] = 10;

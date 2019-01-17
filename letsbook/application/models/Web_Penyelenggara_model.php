@@ -66,6 +66,7 @@ class Web_Penyelenggara_model extends CI_Model {
         $query=$this->db->get('');
         return $query->result();
     }
+    
     public function getPenyelenggaraById($id_penyelenggara){
         $this->db->select('*');
         $this->db->from('tbl_penyelenggara');
@@ -73,6 +74,7 @@ class Web_Penyelenggara_model extends CI_Model {
         $penyelenggara=$this->db->get('')->row_array();
         return $penyelenggara;
     }
+
     function CMBpenyelenggara(){
         $this->db->order_by('nama_organisasi','asc');
         $penyelenggara=$this->db->get('tbl_penyelenggara');

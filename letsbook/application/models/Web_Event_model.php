@@ -52,9 +52,10 @@ class Web_Event_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_event e');
         $this->db->join('tbl_penyelenggara p', 'e.id_penyelenggara=p.id_penyelenggara');
-        $this->db->like('p.nama_organisasi',$keyword);
+        $this->db->like('e.status_event',$keyword);
         $this->db->or_like('e.nama_event',$keyword);
-        // $this->db->where('e.status_event','aktif');
+        $this->db->or_like('e.tanggal_event',$keyword);
+        $this->db->or_like('p.nama_organisasi',$keyword);
         $this->db->order_by('e.tanggal_event','asc');
         $countPenyelenggara=$this->db->count_all_results('');
         return $countPenyelenggara;
@@ -63,9 +64,10 @@ class Web_Event_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_event e');
         $this->db->join('tbl_penyelenggara p', 'e.id_penyelenggara=p.id_penyelenggara');
-        $this->db->like('e.nama_event',$keyword);
-        $this->db->or_like('p.nama_organisasi',$keyword);
-        // $this->db->where('e.status_event','aktif');
+        $this->db->like('p.nama_organisasi',$keyword);
+        $this->db->or_like('e.nama_event',$keyword);
+        $this->db->or_like('e.tanggal_event',$keyword);
+        $this->db->or_like('e.status_event',$keyword);
         $this->db->order_by('e.tanggal_event','asc');
         $this->db->limit($number,$offset);
         $query=$this->db->get('');

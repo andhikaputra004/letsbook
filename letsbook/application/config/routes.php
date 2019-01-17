@@ -154,16 +154,22 @@ $route['pelanggan/register']['POST']='Mobile_Pelanggan_Controller/RegisterPelang
 //
 //pelanggan View
 
-$route['event/listbytime']['GET']='Mobile_Event_Controller/GetListEventbyTime';
-$route['event/listbykategori']['POST']='Mobile_Event_Controller/GetListEventbyKategori';
+$route['event/listbytime']['GET']='Mobile_Event_Controller/GetListEventbyTime';// Home Pelangan
+$route['event/listbykategori']['POST']='Mobile_Event_Controller/GetListEventbyKategori'; // Home Pelangan
+$route['event/detail']['POST']='Mobile_Event_Controller/GetDetailEvent'; // Detail event
 
 //penyelenggara View
 //
-$route['event/listallevent']['POST']='Mobile_Event_Controller/GetListAllEvent';
+$route['event/listallevent']['POST']='Mobile_Event_Controller/GetListAllEvent'; // Home Penyelenggara
 $route['event/listaktifevent']['POST']='Mobile_Event_Controller/GetListAktifEvent';
 
-
 //Transaksi
-$route['transaksi/listaktiftransaksi']['POST']='Mobile_Transaksi_Controller/GetListAktifTransaksi';
-$route['transaksi/listalltransaksi']['POST']='Mobile_Transaksi_Controller/GetListAllTransaksi';
+$route['transaksi/listaktiftransaksi']['POST']='Mobile_Transaksi_Controller/GetListAktifTransaksi'; //tampil Tiketku
+$route['transaksi/listrefundtransaksi']['POST']='Mobile_Transaksi_Controller/GetListRefundTransaksi'; //tampil Refund
+$route['transaksi/listalltransaksi']['POST']='Mobile_Transaksi_Controller/GetListAllTransaksi'; // Tampil transaksi
 
+$route['transaksi/dotransaksi']['POST']='Mobile_Transaksi_Controller/InsertTransaksi'; // Tampil transaksi
+
+$route['transaksi/refundmob']['POST']='Mobile_Transaksi_Controller/RefundTransaksi'; // Tampil transaksi
+
+$route['transaksi/refundmoblist']['POST']='Mobile_Transaksi_Controller/GetListRefundTransaksi'; // Tampil transaksi

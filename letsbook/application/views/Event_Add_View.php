@@ -160,10 +160,9 @@
                               <div >
                                 <select name="id_penyelenggara" id="id_penyelenggara" style="width: col-md-8;" class="form-control">
                                   <option value="pilih">Pilih</option>
-                                  
                                   <?php
-                                  foreach($all_penyelenggara as $data => $value){ // Lakukan looping pada variabel siswa dari controller
-                                    echo "<option value='".$value->id_penyelenggara."'>".$value->nama_organisasi."</option>";
+                                  foreach($all_penyelenggara as $data => $value){ // Lakukan looping pada variabel penyelenggara dari controller
+                                    echo "<option value=".$value->id_penyelenggara.">".$value->nama_organisasi."</option>";
                                   }
                                   ?>
                                 </select>
@@ -173,7 +172,7 @@
                         </div> 
                        
                         <div class="col-md-4">
-                        <div class="form-group">
+                          <div class="form-group">
                             <tr>
                             <label class="control-label">Kategori</label>
                               <div  >
@@ -181,7 +180,7 @@
                                   <option value="">Pilih</option>
                                   
                                   <?php
-                                  foreach($all_Kategori as $data => $value){ // Lakukan looping pada variabel siswa dari controller
+                                  foreach($all_Kategori as $data => $value){ // Lakukan looping pada variabel kategori dari controller
                                     echo "<option value='".$value->id_kategori."'>".$value->nama_kategori."</option>";
                                   }
                                   ?>

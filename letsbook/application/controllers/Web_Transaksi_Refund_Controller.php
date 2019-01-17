@@ -14,10 +14,9 @@ class Web_Transaksi_Refund_Controller extends CI_Controller {
     public function setTransaksiRefundView()
     {
         $countTransaksi=$this->Web_Transaksi_Refund_model->getcountTransaksi();
-
         $config['base_url']=base_url().'index.php/Web_Transaksi_Refund_Controller/setTransaksiRefundView/';
         $config['total_rows'] = $countTransaksi;
-        $config['per_page'] = 10;
+        $config['per_page'] = 2;
         $page = $this->uri->segment(3);
         $this->pagination->initialize($config);
         $data['list_transaksi']=$this->Web_Transaksi_Refund_model->getListTransaksi($config["per_page"],$page);

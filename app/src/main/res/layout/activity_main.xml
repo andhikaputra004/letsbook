@@ -59,4 +59,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_password"/>
+    <TextView android:layout_width="@dimen/dimen_0dp"
+              android:layout_height="wrap_content"
+              android:id="@+id/tv_register"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/btn_login"
+              android:textAlignment="center"
+              android:text="@string/txt_don_t_have_an_account_sign_up"
+              android:layout_marginTop="@dimen/dimen_10dp"/>
 </android.support.constraint.ConstraintLayout>

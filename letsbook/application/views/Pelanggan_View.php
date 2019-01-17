@@ -209,12 +209,12 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Edit Data Pelanggan</h4>
+					<h4 class="modal-title">Reset Password Pelanggan</h4>
 					<input type="hidden" name="id_pelanggan" />
 				</div>
 				<div class="modal-body">
         <div class="form-group label-floating">
-						<label class="control-label">Yakin</label>
+						<label class="control-label">Yakin Reset Password Pelanggan Ini?</label>
 						<input type="hidden" id="kata_sandi" name="kata_sandi" class="form-control" required >
 					</div>
 				<div class="modal-footer">

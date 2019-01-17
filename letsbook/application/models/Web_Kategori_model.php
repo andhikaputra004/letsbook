@@ -28,7 +28,7 @@ class Web_Kategori_model extends CI_Model {
     public function getListKategori($offset,$from){
         $this->db->select('*');
         $this->db->from('tbl_kategori');
-        $this->db->order_by('nama_kategori','asc');
+        $this->db->order_by('id_kategori','asc');
         $this->db->limit($offset,$from);
         $query=$this->db->get('');
         return $query->result();

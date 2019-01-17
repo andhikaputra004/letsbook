@@ -11,6 +11,9 @@ class Mobile_Event_Controller extends CI_Controller {
         $this->load->model($models);
     }
 
+    /*
+        Tampil Data Berdasarkan Tanggal Event || Home Pelanggan
+    */
     public function GetListEventbyTime()
     {
         $response=array(
@@ -25,6 +28,10 @@ class Mobile_Event_Controller extends CI_Controller {
             ->_display();
         exit;
     }
+
+    /*
+        Tampil Data Berdasarkan Kategori Event
+    */
     public function GetListEventbyKategori()
     { 
         $kategori = json_decode(file_get_contents('php://input'),true);
@@ -51,6 +58,10 @@ class Mobile_Event_Controller extends CI_Controller {
         exit;
     }
 
+
+    /*
+        Tampil Data semua Event Berdasarkan Penyelenggara // Home Penyelenggara
+    */
     public function GetListAllEvent()
     {
         $id_penyelenggara = json_decode(file_get_contents('php://input'),true);
@@ -74,7 +85,9 @@ class Mobile_Event_Controller extends CI_Controller {
             ->_display();
         exit;
     }
-
+    /*
+        Tampil Data semua Event Berdasarkan Penyelenggara // Home Penyelenggara
+    */
     public function GetListAktifEvent()
     {
         $id_penyelenggara = json_decode(file_get_contents('php://input'),true);
@@ -88,6 +101,32 @@ class Mobile_Event_Controller extends CI_Controller {
             $response=array(
                 'success'=>false,
                 'message'=>'Belum Ada Transaksi'
+              );
+        }
+
+        $this->output
+            ->set_status_header(200)
+            ->set_content_type('application/json', 'utf-8')
+            ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+            ->_display();
+        exit;
+    }
+
+
+
+    public function GetDetailEvent()
+    {
+        $id_event = json_decode(file_get_contents('php://input'),true);
+        $data= $this->M_Event_model->getDetailEvent($id_event);
+        
+        if($data!=null){
+            $response=array(
+                'listAllEvent'=>$this->M_Event_model->getDetailEvent($id_event)
+                );        
+        }else{
+            $response=array(
+                'success'=>false,
+                'message'=>'Data Tidak Ditemukan'
               );
         }
 

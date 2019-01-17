@@ -1,5 +1,6 @@
 package com.example.andhika.letsbook.main
 
+import android.content.Intent
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
@@ -9,16 +10,28 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.andhika.letsbook.R
 import com.example.andhika.letsbook.base.BaseActivity
+import com.example.andhika.letsbook.deps.SharedPreferenceHelper
 import com.example.andhika.letsbook.fragment.content.ContentFragment
+import com.example.andhika.letsbook.fragment.refund.RefundFragment
 import com.example.andhika.letsbook.fragment.ticket.TicketFragment
 import com.example.andhika.letsbook.fragment.topup.TopUpFragment
 import com.example.andhika.letsbook.fragment.transaksi.TransaksiFragment
+import com.example.andhika.letsbook.login.LoginActivity
+import com.example.andhika.letsbook.utils.Costant.Common.Companion.EMAIL
+import com.example.andhika.letsbook.utils.Costant.Common.Companion.NAMA_PELANGGAN
+import com.example.andhika.letsbook.utils.buildAlertDialog
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.app_bar_main2.*
+import kotlinx.android.synthetic.main.nav_header_main2.*
+import kotlinx.android.synthetic.main.nav_header_main2.view.*
+import javax.inject.Inject
 
 class Main2Activity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val fragment = ContentFragment()
+
+    @Inject
+    lateinit var sharedPreferenceHelper: SharedPreferenceHelper
 
     override fun onSetupLayout() {
         setContentView(R.layout.activity_main2)
@@ -27,14 +40,11 @@ class Main2Activity : BaseActivity(), NavigationView.OnNavigationItemSelectedLis
     override fun onViewReady() {
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
+        loadPreferences()
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         supportFragmentManager.beginTransaction().replace(R.id.cl_content, fragment).commit()
@@ -53,35 +63,56 @@ class Main2Activity : BaseActivity(), NavigationView.OnNavigationItemSelectedLis
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main2, menu)
         return true
     }
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        val fragment : Fragment  = when (item.itemId) {
+        var fragment: Fragment? = null
+        when (item.itemId) {
             R.id.nav_home -> {
-                ContentFragment()
+
+                fragment = ContentFragment()
             }
             R.id.nav_ticket -> {
-                TicketFragment()
+                fragment = TicketFragment()
             }
             R.id.nav_refund -> {
-                ContentFragment()
+                fragment = RefundFragment()
             }
             R.id.nav_transaksi -> {
-                TransaksiFragment()
+                fragment = TransaksiFragment()
 
             }
+            R.id.nav_top_up -> {
+                fragment = TopUpFragment()
+            }
             else -> {
-                TopUpFragment()
-
+                buildAlertDialog(
+                    getString(R.string.logout),
+                    getString(R.string.logout_dialog_detail),
+                    getString(R.string.yes_dialog),
+                    getString(R.string.no_dialog),
+                    positiveAction = {
+                        sharedPreferenceHelper.removeSession()
+                        startActivity(Intent(this@Main2Activity, LoginActivity::class.java))
+                        finish()
+                    }).show()
             }
 
         }
-        supportFragmentManager.beginTransaction().replace(R.id.cl_content, fragment).commit()
+        fragment?.let {
+            supportFragmentManager.beginTransaction().replace(R.id.cl_content, fragment).commit()
+        }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
+    fun loadPreferences() {
+        val navView = nav_view.getHeaderView(0)
+        navView.tv_name.text = sharedPreferenceHelper.getString(NAMA_PELANGGAN)
+        navView.tv_email.text = sharedPreferenceHelper.getString(EMAIL)
+    }
+
 }

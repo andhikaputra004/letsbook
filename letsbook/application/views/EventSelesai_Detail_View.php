@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url();?>assets_main/img/logo.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Detail Event</title>
+  <title>Detail Event Selesai</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -314,7 +314,7 @@
                 <h6 class="category text-gray">Tagihan</h6>
                 <h4 class="card-title"><b><?php echo ($harga_tiket*($quota_peserta-($tiket_terjual-$jumlah_tiket_refund))) ?></h4>
                 <?php
-                  echo anchor(base_url('penyelenggara/update/'.$id_penyelenggara),'<button href="#pablo" class="btn btn-primary btn-round">Edit Data Profile</button>');
+                 // echo anchor(base_url('penyelenggara/update/'.$id_penyelenggara),'<button href="#pablo" class="btn btn-primary btn-round">Edit Data Profile</button>');
                 ?>
                 <!-- <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#myModal" onclick="getIdKatering(<?php echo $id_katering?>)">Hapus</button> -->
               </div>

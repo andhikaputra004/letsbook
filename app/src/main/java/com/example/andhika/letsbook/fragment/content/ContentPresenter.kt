@@ -12,7 +12,7 @@ class ContentPresenter @Inject constructor(val networkManager: NetworkManager) :
     var view: ContentContract.View? = null
 
     override fun goToMain(request: EventRequest) {
-        compositeDisposable.addAll(networkManager.doGetEvent(request,{
+        compositeDisposable.addAll(networkManager.doGetEvent({
             when{
                 it.status ?: false ->{
                     view?.getListEvent(it)

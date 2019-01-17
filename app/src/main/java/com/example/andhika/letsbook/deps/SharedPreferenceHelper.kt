@@ -1,6 +1,7 @@
 package com.example.andhika.letsbook.deps
 
 import android.content.SharedPreferences
+import com.example.andhika.letsbook.utils.Costant.Common.Companion.EMAIL
 import com.example.andhika.letsbook.utils.Costant.Common.Companion.ID_PELANGGAN
 import com.example.andhika.letsbook.utils.Costant.Common.Companion.NAMA_PELANGGAN
 
@@ -33,6 +34,8 @@ class SharedPreferenceHelper(val sharedPreference: SharedPreferences){
     fun removeSession() {
         setString(ID_PELANGGAN, "")
         setString(NAMA_PELANGGAN, "")
+        setString(EMAIL, "")
+
     }
 
 }
